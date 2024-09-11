@@ -38,12 +38,12 @@ export default async function createReceipt(order) {
         page.drawText( v.quantity.toString(), { x: 80, y: height - 92 - 29 * i - 29, font: helveticaFont});
         page.drawText("点" , { x: 92 + helveticaFont.widthOfTextAtSize(v.quantity.toString(),8), y: height - 92 - 29 * i - 29});
         page.drawText("¥" + item.price, { x: 50, y: height - 92 - 29 * i - 29, font: helveticaFont});
-        page.drawText("¥" + item.price * v.quantity, { x: width - getTextWidth(helveticaFont ,"¥" + item.price * v.quantity ,8) - 10, y: height - 92 - 29 * i - 29, font: helveticaFont});
+        page.drawText("¥" + item.price * v.quantity, { x: width - getTextWidth(helveticaFont ,"¥" + item.price * v.quantity ,8) - 20, y: height - 92 - 29 * i - 29, font: helveticaFont});
     });
     page.drawLine({start: {x: 10, y: height - 92 -9 - 29 * order.orderItems.length}, end: {x: width-10, y: height - 92 - 9 - 29 * order.orderItems.length} , dashArray: [2, 2]});
     page.setFontSize(10);
     page.drawText("合計", { x: 10, y: height - 92 - 29 * order.orderItems.length - 29});
-    page.drawText("¥" + order.total, { x: width - getTextWidth(helveticaFont ,"¥" + order.total ,10) - 10, y: height - 92 - 29 * order.orderItems.length - 29, font: helveticaFont});
+    page.drawText("¥" + order.total, { x: width - getTextWidth(helveticaFont ,"¥" + order.total ,10) - 20, y: height - 92 - 29 * order.orderItems.length - 29, font: helveticaFont});
     const pdfBytes = await pdfDoc.save();
     fs.writeFileSync(`./tmp/${order.submitId}.pdf`, pdfBytes);
     return pdfBytes;
