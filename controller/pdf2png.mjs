@@ -6,5 +6,5 @@ export default async function pdf2png(submitId) {
     await fs.writeFile(`./tmp/${submitId}.png`, document);
 }
 
-pdf2png("191d23b14753a");
+// pdf2png("191d23b14753a");
 

@@ -30,7 +30,7 @@ export default async function createReceipt(order) {
     }
     page.drawText("73期高3喫茶班 @9模擬", { x: width/2 - getTextWidth(genshinGothic,"73期高3喫茶班 @9模擬",8)/2, y: height - 65});
     page.drawText("ID : " + order.submitId, { x: width/2 - getTextWidth(helveticaFont,"ID : " + order.submitId,8)/2, y: height - 78 , font: helveticaFont});
-    order.isEatIn ? page.drawText(`テーブル番号 : ${order.tableNum}`, { x: width/2 - getTextWidth(genshinGothic,`テーブル番号 : ${order.tableNum}`,8)/2, y: height - 88 , font: helveticaFont}) : page.drawText(`持ち帰り番号 : ${order.tableNum}`, { x: width/2 - getTextWidth(genshinGothic,`持ち帰り番号 : ${order.tableNum}`,8)/2, y: height - 88 , font: genshinGothic});
+    order.isEatIn ? page.drawText(`テーブル番号 : ${order.tableNum}`, { x: width/2 - getTextWidth(genshinGothic,`テーブル番号 : ${order.tableNum}`,8)/2, y: height - 88 , font: genshinGothic}) : page.drawText(`持ち帰り番号 : ${order.tableNum}`, { x: width/2 - getTextWidth(genshinGothic,`持ち帰り番号 : ${order.tableNum}`,8)/2, y: height - 88 , font: genshinGothic});
     page.drawLine({start: {x: 10, y: height - 92}, end: {x: width-10, y: height - 92}});
     order.orderItems.forEach((v,i) => {
         const item = itemsData.find((item) => item.id === v.itemId);
@@ -49,34 +49,34 @@ export default async function createReceipt(order) {
     return pdfBytes;
 }
 
-createReceipt({
-    "_id": {
-      "$oid": "66ddc14d46022c142780278c"
-    },
-    "persons": 1,
-    "payment": "cash",
-    "orderItems": [
-      {
-        "itemId": 1,
-        "area": "Ginger",
-        "quantity": 1,
-        "orderId": "191d23ae7d625",
-        "isCompleted": true,
-        "_id": {
-          "$oid": "66ddc14d46022c142780278d"
-        }
-      }
-    ],
-    "total": 200,
-    "submitId": "191d23b14753a",
-    "isServed": false,
-    "tableNum": 56,
-    "isEatIn": false,
-    "createdAt": {
-      "$date": "2024-09-08T15:22:53.216Z"
-    },
-    "updatedAt": {
-      "$date": "2024-09-08T15:22:53.216Z"
-    },
-    "__v": 0
-  });
+// createReceipt({
+//     "_id": {
+//       "$oid": "66ddc14d46022c142780278c"
+//     },
+//     "persons": 1,
+//     "payment": "cash",
+//     "orderItems": [
+//       {
+//         "itemId": 1,
+//         "area": "Ginger",
+//         "quantity": 1,
+//         "orderId": "191d23ae7d625",
+//         "isCompleted": true,
+//         "_id": {
+//           "$oid": "66ddc14d46022c142780278d"
+//         }
+//       }
+//     ],
+//     "total": 200,
+//     "submitId": "191d23b14753a",
+//     "isServed": false,
+//     "tableNum": 56,
+//     "isEatIn": false,
+//     "createdAt": {
+//       "$date": "2024-09-08T15:22:53.216Z"
+//     },
+//     "updatedAt": {
+//       "$date": "2024-09-08T15:22:53.216Z"
+//     },
+//     "__v": 0
+//   });
