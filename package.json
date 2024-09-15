@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@pdf-lib/fontkit": "^1.1.1",
+    "array-gpio": "^1.7.3",
     "canvas": "^2.11.2",
     "cors": "^2.8.5",
     "escpos": "^3.0.0-alpha.6",

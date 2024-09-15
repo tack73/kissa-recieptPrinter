@@ -2,13 +2,16 @@ import createReceipt from "../controller/createReciept.mjs";
 import pdf2png from "../controller/pdf2png.mjs";
 import print from "../controller/print.mjs";
 import * as fs from "node:fs/promises";
+import ledOnOff from "../controller/led.mjs";
 
 export default async function generatePrint(order){
+    ledOnOff("white",true);
     await createReceipt(order);
     await pdf2png(order.submitId);
     print(order.submitId);
     await fs.rm(`./tmp/${order.submitId}.pdf`);
     await fs.rm(`./tmp/${order.submitId}.png`);
+    ledOnOff("white",false);
 }
 
 // generatePrint({

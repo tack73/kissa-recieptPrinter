@@ -1,6 +1,7 @@
 import express from 'express';
 import apiRoutes from './routes/index.mjs';
 import cors from 'cors';
+import led from "./controller/led.mjs";
 
 const app = express();
 const port = 8000;
@@ -28,4 +29,5 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
+  led("yellow",true);
 });
